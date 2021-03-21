@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <style>
+
+        </style>
+    </h:head>
+
+    <body>
+        <ui:composition template="./../../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+
+                <div class="wrapper">
+                    <div class="sidebar">
+                        <ul>
+                            <li><a href="#">Camisas Manga Corta</a></li>
+                            <li><a href="#">Camisas Manga Larga</a></li>
+                            <li><a href="#">Camisas Polo</a></li>
+                        </ul>
+                        <ul>
+                            <h3>Tamanos</h3>
+                            <b:button value="XS"/>
+                            <b:button value="S"/>
+                            <b:button value="M"/>
+                            <br></br>
+                            <b:button value="L"/>
+                            <b:button value="XL"/>
+                            <b:button value="XXL"/>
+                        </ul>
+                    </div>
+                    <div class="main_content">
+                        
+                        <c:forEach var="producto" items="${productoController.getProductos(6)}">          
+                                <div class="card">
+                                    <div class="card-image">
+                                        <span><img src="${producto.urlImagen}" width="200" height="180"/></span>
+                                    </div>
+                                    <div class="card-text">
+                                        <h2>${producto.nombre_producto}</h2>
+                                        <p>${producto.descripcion}</p>
+                                        <p>${producto.precio}</p>
+                                    </div>
+                                    <div class="card-stats">
+                                        <div class="stat">
+                                            <div class="value">Agregar</div>
+                                            <div class="type">Al Carrito</div>
+                                        </div>
+                                        <div class="stat border">
+                                            <div class="value">Detalles</div>
+                                            <div class="type">Del Producto</div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </c:forEach>
+                    </div>
+                </div>
+
+            </ui:define>
+        </ui:composition>
+    </body>
+
+</html>
